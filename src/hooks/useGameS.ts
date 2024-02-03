@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import apiClient from "../servvices/api-client";
-import { CanceledError } from "axios";
-import useData from "./useData";
-import { Generes } from "./useGeneres";
+import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
+import apiClient from "../servvices/api-client";
+import { FetchResponse } from "../servvices/api-client";
+
 
 export interface Plateform
 {
@@ -20,14 +19,27 @@ export interface Game {
     rating_top: number
   }
 
-const useGames = (gamequery:GameQuery) => useData<Game>('/games', 
-{params:{genres:gamequery.genere?.id, plateforms:gamequery.plateform?.id,
-  ordering:gamequery.sortOrder,
-  search:gamequery.searchText
-}
+const useGames = (gamequery:GameQuery) =>
+// useQuuery will fetch data of type FetchResponse and error of type Error
+useQuery<FetchResponse<Game>, Error>({
+  queryKey:['games', gamequery],
+  queryFn: () => apiClient.get<FetchResponse<Game>>('/games',{
+    params:
+    {genres:gamequery.genere?.id, 
+    plateforms:gamequery.plateform?.id,
+    ordering:gamequery.sortOrder,
+    search:gamequery.searchText
+  }
+  
+  })
+  .then(res => res.data)
+})
 
-},
- [gamequery])
+
+
+
+
+
 
 
 export default useGames;

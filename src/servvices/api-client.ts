@@ -1,4 +1,9 @@
 import axios from "axios"
+export interface FetchResponse<T>
+{
+    count: number
+    results: T[]
+}
 
 // api client to make request 
 
