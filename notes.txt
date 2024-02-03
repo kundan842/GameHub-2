@@ -1,0 +1,108 @@
+=> various built in 3rd party librery is being used for ui devlopemtnt
+=> bootstrtap, chackraui, material ui
+=> chakra ui has built in component just need to install and import from
+it for diffrent project vites, gastsby, app
+for all: https://chakra-ui.com/getting-started
+for vite: https://chakra-ui.com/getting-started/vite-guide
+=> npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+=> for component like buttons just serach on cjakra ui and import and use 
+built in component
+=> responsive design : https://chakra-ui.com/docs/styled-system/responsive-styles
+https://chakra-ui.com/docs/components/grid/usage
+=> in grid  can define tenplate areas using this "" repesnts the one row
+ templateAreas={'"nav nav" "aside main" '}
+ => to desgin for mobile device sits better to use single columm for each row 
+ as size is ariund 760 px for tablets
+ => for bigger devices can have two coloumns for each row
+ Responsive Styles
+Chakra UI supports responsive styles out of the box.
+ Instead of manually adding @media queries and adding nested styles
+  throughout your code, Chakra UI allows you to provide object and array values to add mobile-first responsive styles.
+  Remember, Chakra UI uses the min-width media query for responsive design. The breakpoints are: base = 0em, sm = 30em, md = 48em, lg = 62em, xl = 80em,, 2xl = 96em
+
+Here's how to interpret this syntax fontSize={{ base: '24px', md: '40px', lg: '56px' }}:
+
+24px: From 0em upwards
+40px: From 48em upwards
+56px: From 62em upwards
+=> <Show above="lg">
+          {" "}
+          <GridItem area={"aside"} bg="pink">
+            Aside
+          </GridItem>
+        </Show>
+=> this will show the aside area when device widet is lg or above lg
+=> https://chakra-ui.com/docs/components/show-hide/usage
+================================================================================
+   building top navbar
+=> https://getbootstrap.com/docs/5.1/helpers/stacks/ 
+stacks to build horizontal or vertical layout
+https://chakra-ui.com/docs/components/stack/usage#feature-cards-with-stack-component
+=> A file with the .webp file extension is a file format developed by Google to reduce the size of images without having to sacrifice quality for storage space. WebP images are designed to make the web faster, with smaller, richer photos for developers to use.
+==========================================================================================================================================
+ color mode change
+ => https://getbootstrap.com/docs/5.1/forms/checks-radios/#switches 
+ => https://chakra-ui.com/docs/components/switch/usage#switch-background-color
+ => https://chakra-ui.com/docs/styled-system/color-mode
+ useColorMode hhok that give current color mode and toggleColermode fucntion
+ to chnage color mode
+ => define theme.tsx and configuration like initial color mode and import theme in main and 
+==================================================================================================================
+ : dd1c596d6ab24bb6909f27f7966dd259
+dd1c596d6ab24bb6909f27f7966dd259
+https://rawg.io/
+=> api documentattion to get the games : https://api.rawg.io/docs/#operation/games_list
+=> components should resposnible for returning markup and handling user interaction
+=> it need not know the api endpoint and the res , error, then aborting request
+=> so better to create  a custom hook that will make request and abort request , know the endpoint
+=> these custom hooks are not only resposnible for sharing fucntionality
+but its also provdies the seperation of concerns and make code  more modular
+=> https://chakra-ui.com/docs/components/simple-grid/usage
+=> https://chakra-ui.com/docs/components/card/usage
+=> when the elmemnt overflows the caontainer like card then set oveflow=hideen 
+=> for  responsive degin settting 
+<SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 5 }} spacing={10}>
+smaller device will have 1 column lg like laptop will have 3 so on 
+=> https://chakra-ui.com/docs/styled-system/style-props#margin-and-padding
+=> to place composnennst horizonatlly hstch is used. 
+=> to show image in compoennt like card its not good to get full size imgae as it takes more 
+request time for larger image size
+=> so better to modify the image url before using it into src 
+=> in netwrok tab of browser with the request made request, request and response header 
+we  can also see the images fetched forom server or cdn in image tab
+=> to show loading state of some component skelaton element can be used
+=> https://chakra-ui.com/docs/components/skeleton/usage
+=>          <GameCardContainer> <GameCard key={game.id} game={game}></GameCard></GameCardContainer>
+here when the GameCard is wrapped inside the GameCardContainer, GameCard is props of type ReactNode
+=> a compoennt should not know about the http request or end point 
+it should return markup
+=> to share the data between two compoennt we need to lift the state up to closest parent
+=> like  to share selected geener from genere compoennt to game component
+need to lift teh state to app compoennt which is the closet parent
+=> axios.get(url, requetsConfigObject)
+=> requestconfig objetct can have data that need to beed send in request body, queryparams etc
+==========================================================================================================================
+=> to create dropdown list using select option , menu elleement is there in Chakra
+=> https://chakra-ui.com/docs/components/menu/usage
+=> https://chakra-ui.com/docs/styled-system/style-props#layout-width-and-height
+=> for each kind of variable its not good to create state variable so its better to crete the 
+query params object
+=> rightIcon={<BsChevronDown /> to show arrow on sorting dropdown
+=> various api endpoint to get the game with diffrent queeryparams and orediering
+  https://api.rawg.io/docs/#tag/games
+=========================================================================================================================================
+string
+Available fields: name, released, added, created, updated, rating, metacritic. You can reverse the sort order adding a hyphen, for example: -released
+=> in some games image url is not returned so in such cases better to provide staic no image placeholder
+=> such static image place holder should return as module
+=> in genres list images are distorted cause the fetching image of size 600*400
+and fitting it inside the cotainer of size 30 * 30  so aspect ratio get distorted
+=> to make sure images are fit not blurred set obejctFit cover
+=> emojiMap: { [key: number]: ImageProps } annotating the object here  [key: number] called index signature
+=> defiifng emojiMap of type object here object has any number of key with tpe number and its valus is of type ImageProps of chakra ui
+=> https://chakra-ui.com/docs/components/image/usage
+=> static data like genres, plateforms are not changing so insted of calling each time to server we 
+can get the data once and store it in memory and display each time so will reduce time 
+and make better usesr expereinece
+
+
