@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import apiClient from "../servvices/api-client";
+import APIClient from "../servvices/api-client";
 import { CanceledError } from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 import { FetchResponse } from "../servvices/api-client";
+
+const apiClient = new APIClient<Generes>('/genres')
 
 export interface Generes
 {
@@ -15,8 +17,7 @@ export interface Generes
 
 const useGeneres = () =>  useQuery({
     queryKey:['generes'],
-    queryFn: () => apiClient.get<FetchResponse<Generes>>('/genres')
-                .then(res => res.data),
+    queryFn: apiClient.getAll,
     staleTime:24*60*60*1000 // 24h
 })
 

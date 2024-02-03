@@ -14,3 +14,8 @@ implememnting react query and global statemanagement and react router in gamehub
 
     => here we can pass initialData for static conetent so till the stale time 
     no call will be made to server and those data will be used
+    ===================================================================================
+    => shift+ctrl+p to open the command pallate 
+    => from command pallet organize the import, build application
+    => before removing any exported function ,get the refrence of exported function
+================================================================================================================

@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import apiClient from "../servvices/api-client";
-import { FetchResponse } from "../servvices/api-client";
+import APIClient, { FetchResponse } from "../servvices/api-client";
 import { Plateform } from "./usePlateforms";
 
 
 
+
+const apiClient = new APIClient<Game>('/games')
 export interface Game {
     id: number;
     name: string;
@@ -19,7 +20,7 @@ const useGames = (gamequery:GameQuery) =>
 // useQuuery will fetch data of type FetchResponse and error of type Error
 useQuery<FetchResponse<Game>, Error>({
   queryKey:['games', gamequery],
-  queryFn: () => apiClient.get<FetchResponse<Game>>('/games',{
+  queryFn: () => apiClient.getAll({
     params:
     {genres:gamequery.genere?.id, 
     plateforms:gamequery.plateform?.id,
@@ -27,9 +28,9 @@ useQuery<FetchResponse<Game>, Error>({
     search:gamequery.searchText
   }
   
-  })
-  .then(res => res.data)
-})
+  })}
+  
+)
 
 
 
