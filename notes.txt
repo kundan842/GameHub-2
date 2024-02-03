@@ -19,3 +19,11 @@ implememnting react query and global statemanagement and react router in gamehub
     => from command pallet organize the import, build application
     => before removing any exported function ,get the refrence of exported function
 ================================================================================================================
+implement infinite queries for game 
+=> for infite query react query have useInfiniteQuery hook using it we can create create a "Load More" UI 
+=> in query function , queryFn: ( {pageParam = 1 }) => apiClient.getAll({
+    react query passes pageno so destructure it it as pageParam and initilize it to 1 
+    so for first time first page data is loaded
+=> rawg api supports data pagination , https://api.rawg.io/docs/#operation/games_list
+=> other then data , error and isLoading supported by Rect useQuery, infinite query supports additional
+function isFetchingNextPage, fetchNextPage, hasNextPage
