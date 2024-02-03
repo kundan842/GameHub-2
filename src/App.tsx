@@ -12,7 +12,7 @@ import GeneresList from "./components/GeneresList";
 import { useState } from "react";
 import { Generes } from "./hooks/useGeneres";
 import PlateformSelector from "./components/PlateformSelector";
-import { Plateform } from "./hooks/useGameS";
+import { Plateform } from "./hooks/usePlateforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import apiClient from "../servvices/api-client";
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import useGames, { Plateform } from "../hooks/useGameS";
+import useGames from "../hooks/useGameS";
+import usePlateforms from "../hooks/usePlateforms";
 import GameCard from "./GameCard";
 import LoadingSkelaton from "./LoadingSkelatoon";
 import GameCardContainer from "./GameCardContainer";

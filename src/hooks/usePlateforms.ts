@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { FetchResponse } from "../servvices/api-client"
 import apiClient from "../servvices/api-client"
 
-interface Plateform 
+export interface Plateform 
 {
     id:number
     name:string

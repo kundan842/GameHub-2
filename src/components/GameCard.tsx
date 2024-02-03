@@ -1,7 +1,8 @@
 // this will take each game object as props and return car markup
 
 import { Card, CardBody, HStack, Heading, Hide, Image } from "@chakra-ui/react";
-import { Game, Plateform } from "../hooks/useGameS";
+import { Game } from "../hooks/useGameS";
+import { Plateform } from "../hooks/usePlateforms";
 import PlateFormIconList from "./PlateformsIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../servvices/image-utils";
