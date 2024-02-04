@@ -27,3 +27,14 @@ implement infinite queries for game
 => rawg api supports data pagination , https://api.rawg.io/docs/#operation/games_list
 => other then data , error and isLoading supported by Rect useQuery, infinite query supports additional
 function isFetchingNextPage, fetchNextPage, hasNextPage
+=========================================================================================================
+                                infinite scroling in game component
+=>   npm install --save react-infinite-scroll-component
+=> <InfiniteScroll
+      dataLength={totalFetchedGames}
+      hasMore={!!hasNextPage}
+      next={() => fetchNextPage()}
+      loader={<Spinner></Spinner>}
+    >
+=> doc: https://www.npmjs.com/package/react-infinite-scroll-component
+    => here !! convert value to boolean value 

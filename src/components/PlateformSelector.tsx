@@ -5,11 +5,17 @@ import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 interface Props {
   onSelectPlateform: (plateform: Plateform) => void;
-  selectedPalteform: Plateform | null;
+  selectedPalteformId?: number;
 }
-const PlateformSelector = ({ onSelectPlateform, selectedPalteform }: Props) => {
+const PlateformSelector = ({
+  onSelectPlateform,
+  selectedPalteformId,
+}: Props) => {
   // const {  data , error, isLoading} = usePlateforms();
   const { data, error, isLoading } = usePlateforms();
+  const selectedPalteform = data?.results.find(
+    (plateform) => plateform.id == selectedPalteformId
+  );
   if (error) return null;
   return (
     <Menu>
