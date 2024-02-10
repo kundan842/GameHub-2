@@ -3,20 +3,19 @@ import {
   HStack,
   Heading,
   Image,
-  Link,
   List,
   ListItem,
   Spinner,
-  Text,
 } from "@chakra-ui/react";
-import useGeneres, { Generes } from "../hooks/useGeneres";
+import useGeneres from "../hooks/useGeneres";
 import getCroppedImageUrl from "../servvices/image-utils";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSelectGenere: (genere: Generes) => void;
-  selectedGenereId?: number;
-}
-const GeneresList = ({ onSelectGenere, selectedGenereId }: Props) => {
+const GeneresList = () => {
+  // here compoent depend on only generId, and renders only if generId chnages
+  // so instead of destructing get speicific property
+  const selectedGenereId = useGameQueryStore((s) => s.gameQuery.generId);
+  const setelectedGenereId = useGameQueryStore((s) => s.setGenereid);
   const { data, isLoading, error } = useGeneres();
   if (isLoading) return <Spinner></Spinner>;
   if (error) return null;
@@ -41,7 +40,7 @@ const GeneresList = ({ onSelectGenere, selectedGenereId }: Props) => {
               />
               <Button
                 fontWeight={selectedGenereId == genere.id ? "bold" : "normal"}
-                onClick={() => onSelectGenere(genere)}
+                onClick={() => setelectedGenereId(genere.id)}
                 variant="Link"
                 whiteSpace="normal"
                 textAlign="left"

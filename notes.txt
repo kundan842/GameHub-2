@@ -37,4 +37,24 @@ function isFetchingNextPage, fetchNextPage, hasNextPage
       loader={<Spinner></Spinner>}
     >
 => doc: https://www.npmjs.com/package/react-infinite-scroll-component
-    => here !! convert value to boolean value 
+    => here !! convert value to boolean value
+  ===  ================================================================================================= 
+                picking the right statemanagement
+=> in app.tsx, the logic of managin stae is spraed all over the place, and there is prop drilling
+like from app passoig onSearch method to navBar component , from navebar passign onSearch metod to Search component
+=> so we can use centralize stae management using reducer and share the state using React context
+=> but the drawback with using react contetxt is that if any value changees , which is being shared using contetxt
+then all the component using, that context will re render
+=> so to avoid the rerendering  need to use the State Management libreries
+    1.Redux
+    2.Mobx
+    3.Recoil
+    4.XState
+    5.Zustand
+=> so wil be using the Zustand to manage the client state
+=> first create the Zustand store , which will store the GameQury obejct
+=> and that gameQuery can be shared easily , without passoing Sto each compoemnt indivisually
+=> so in compoenent no need to use the state hook just use the zustand to 
+manage state
+
+=> npm i zustand@4.3.7

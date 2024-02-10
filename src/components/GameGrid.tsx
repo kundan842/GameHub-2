@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
-import apiClient from "../servvices/api-client";
 import { Button, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
-import useGames from "../hooks/useGameS";
-import usePlateforms from "../hooks/usePlateforms";
-import GameCard from "./GameCard";
-import LoadingSkelaton from "./LoadingSkelatoon";
-import GameCardContainer from "./GameCardContainer";
-import { Generes } from "../hooks/useGeneres";
-import { GameQuery } from "../App";
+import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-interface Props {
-  // selecteddGenere: Generes | null;
-  // selectedPlateform: Plateform | null;
-  gameQuery: GameQuery;
-}
+import useGames from "../hooks/useGameS";
+import GameCard from "./GameCard";
+import GameCardContainer from "./GameCardContainer";
+import LoadingSkelaton from "./LoadingSkelatoon";
 
-const GameGrid = ({ gameQuery }: Props) => {
+const GameGrid = () => {
   const {
     data,
     error,
@@ -23,7 +14,7 @@ const GameGrid = ({ gameQuery }: Props) => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useGames(gameQuery);
+  } = useGames();
   const skelatons = [1, 2, 3, 4, 5, 6, 7];
   if (error) return <Text>{error.message}</Text>;
   // heere in datalengt is not the no of items to be shown per page
