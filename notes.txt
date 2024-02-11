@@ -58,3 +58,8 @@ then all the component using, that context will re render
 manage state
 
 => npm i zustand@4.3.7
+=> so using zustand we centarlized the state mangement , data sharing and avoided props drilling
+=> so all compoemnt get shared data from single zustand store
+=> but these command cannot resused directly into other projects
+=> so choose between data passing as props or using librery as zustand depends 
+on project need , there is not one fit
