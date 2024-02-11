@@ -4,16 +4,9 @@ import { CanceledError } from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 import { FetchResponse } from "../servvices/api-client";
+import { Generes } from "./Generes";
 
 const apiClient = new APIClient<Generes>('/genres')
-
-export interface Generes
-{
-    id:number
-    name:string
-    slug: string
-    image_background:string
-}
 
 const useGeneres = () =>  useQuery({
     queryKey:['generes'],

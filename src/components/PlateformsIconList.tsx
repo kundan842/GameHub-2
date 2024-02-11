@@ -1,4 +1,4 @@
-import { Plateform } from "../hooks/usePlateforms";
+import { Plateform } from "../entities/Plateform";
 import { HStack, Icon, Text } from "@chakra-ui/react";
 import {
   FaWindows,
