@@ -63,3 +63,8 @@ manage state
 => but these command cannot resused directly into other projects
 => so choose between data passing as props or using librery as zustand depends 
 on project need , there is not one fit
+=============================================================================================================================================
+                    Setting up routing
+=> npm i react-router-dom@6.10.0
+=>  {isRouteErrorResponse(error) this diffrenciated between route error or application error
+=> add   errorElement: <ErrorPage></ErrorPage> to root route element
