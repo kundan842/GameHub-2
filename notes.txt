@@ -183,3 +183,11 @@ results:
     </SimpleGrid>
 
     => here for base mobile deviece 1 column , for large devices like laptop 2 columns per row
+
+    =====================================================================
+     imporving layoyut of detailed page
+     => two coloums on lefts attributs should be shown and on right video and screen shot
+     ============================================================================================================
+                                 fixing  the navbar
+    => all the interfaces are exported as named export so need to import using ,curlery braces 
+    so better to export as default export 
